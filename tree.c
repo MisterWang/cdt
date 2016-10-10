@@ -32,3 +32,8 @@ void bnrtree_print(bnrtree* tree){
     if(tree->right)
         bnrtree_print(tree->right);
 }
+
+//打印整棵树
+void bnrtree_printf(){
+    
+}
