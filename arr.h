@@ -27,5 +27,6 @@ typedef struct arr
 arr* arr_create(int size);
 void arr_set(arr *list, int index,arrval* val);
 arrval* arr_get(arr *list, int index);
+void arr_append(arr* list,arrval* val);
 
 #endif

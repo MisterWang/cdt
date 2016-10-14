@@ -4,6 +4,7 @@
     "version": "0.1.0",
     "command": "gcc",
     "isShellCommand": true,
-    "args": ["-g","${file}"],
+    // "args": ["-g","${file}"],
+    "args":["-g","*.c"],
     "showOutput": "always"
 }

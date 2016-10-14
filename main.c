@@ -2,6 +2,7 @@
 
 #include "tree.h"
 #include "arr.h"
+#include "lklist.h"
 
 // #define PAUSE {printf("press  enter to continue \n");fgetc(stdin);}
 #define PAUSE system("pause");
@@ -11,7 +12,9 @@ void test_arr();
 
 int main(){
     // test_arr();
-    
+    test_bnt();
+    // arrval* val=ARRVALM(10);
+
     PAUSE
     return 0;
 }
@@ -32,5 +35,20 @@ void test_bnt(){
         bnrtree_append_val(tree,a[i]);
     }
     
-    bnrtree_print(tree);
+    lklist* list=lklist_create();
+    bnrtree_printf(tree,0,list);
+    lklist* temp=list;
+    arr* arr=NULL;
+    while(temp->next){
+       temp=temp->next;
+       arr=temp->val;
+       arrval* arvals;
+    //    for(i=0;i<arr->size;i++){
+    //         arvals=arr_get(arr,i);
+    //         if(arvals->val.a)
+    //             printf("%d ",arvals->val.a);
+    //    }
+    //    printf("\n");
+    }
+    
 }

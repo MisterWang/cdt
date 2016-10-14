@@ -3,11 +3,19 @@
 #include "memory.h"
 
 typedef struct lklist{
-    char* val;
-    lklist* next;
+    void* val;
+    struct lklist* next;
 }lklist;
 
-void lklist_set(lklist* list,char* val);
+lklist* lklist_create();
+void lklist_set(lklist* list,void* val);
+void lklist_seti(lklist* list,int index,void* val);
 lklist* lklist_get(lklist* list,int index);
+
+typedef struct lk2list{
+    char* val;
+    struct lk2list* pre;
+    struct lk2list* next; 
+}lk2list;
 
 #endif

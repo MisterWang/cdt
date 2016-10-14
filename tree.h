@@ -4,6 +4,8 @@
 // #include <string.h>
 #include <stdio.h>
 #include "memory.h"
+#include "lklist.h"
+#include "arr.h"
 
 typedef struct bnrtree{
     int val;
@@ -16,5 +18,5 @@ void bnrtree_append(bnrtree* tree,bnrtree* node);
 void bnrtree_append_val(bnrtree* tree,int val);
 void bnrtree_mknull(bnrtree* tree);
 void bnrtree_print(bnrtree* tree);
-
+void bnrtree_printf(bnrtree* tree,int deepth,lklist* list);
 #endif
