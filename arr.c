@@ -22,12 +22,14 @@ arrval* arr_get(arr* list,int i){
 void arr_append(arr* list,arrval* val){
     arr* temp=list;
     int i=0;
-    while(i<=list->size && temp->val){
-        temp+=1;
+    arrval* cval=temp->val;
+    while(i<=list->size && cval->val.a){
+        cval++;
         i++;
     }
     
-    temp->val=val;
+    cval->val=val->val;
+    // temp->val=val;
 }
 
 arrval* arrval_create(int size){

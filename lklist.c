@@ -36,10 +36,15 @@ void lklist_seti(lklist* list,int index,void* val){
     for(i=0;i<index && temp->next;i++)
         temp=temp->next; 
     
-    lklist* node=MEM_CREATE(sizeof(lklist));
-    node->val=val;
-    node->next=NULL;
-    temp->next=node;
+    if(temp->next){
+        // temp->next   
+        temp->next->val=val;
+    }else{
+        lklist* node=MEM_CREATE(sizeof(lklist));
+        node->val=val;
+        node->next=NULL;
+        temp->next=node;
+    }
 }
 
 lklist* lklist_get(lklist* list,int index){
@@ -53,3 +58,4 @@ lklist* lklist_get(lklist* list,int index){
     else
         return NULL;
 }
+

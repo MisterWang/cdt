@@ -41,7 +41,7 @@ void bnrtree_printf(bnrtree* tree,int deepth,lklist* list){
         arrval* val=ARRVAL();
         val->val.a=tree->val;
         arr_append(cur->val,val);
-        lklist_seti(list,deepth,cur);
+        // lklist_seti(list,deepth,cur);
     }else{
         arr* arr=arr_create(pow(2,deepth));
         arrval* val=ARRVAL();
@@ -50,10 +50,25 @@ void bnrtree_printf(bnrtree* tree,int deepth,lklist* list){
         lklist_seti(list,deepth,arr);
     }
     
-    if(tree->right)bnrtree_printf(tree->right,deepth+1,list);
     if(tree->left)bnrtree_printf(tree->left,deepth+1,list);
+    if(tree->right)bnrtree_printf(tree->right,deepth+1,list);
     
     if(deepth==0){
         printf("***print tree list ...***\n");
+        
+        lklist* temp=list;
+        arr* arr=NULL;
+        int i;
+        while(temp->next){
+            temp=temp->next;
+            arr=temp->val;
+            arrval* arvals;
+            for(i=0;i<arr->size;i++){
+                arvals=arr_get(arr,i);
+                if(arvals->val.a)
+                    printf("%d ",arvals->val.a);
+            }
+            printf("\n");
+        }
     }
 }
