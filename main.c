@@ -27,9 +27,11 @@ void test_arr(){
     
 }
 
+//无法打印左子树...
 void test_bnt(){
     bnrtree* tree=bnrtree_create(3);
-    int a[]={3,4,2,23,4};
+    // int a[]={3,4,2,23,4,1,3,5,7,25,57};
+    int a[]={1,2,3,4,5};
     int i;
     for(i=0;i<5;i++){
         bnrtree_append_val(tree,a[i]);
