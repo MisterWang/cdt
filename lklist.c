@@ -1,7 +1,7 @@
 #include "lklist.h"
 
 lklist* lklist_create(){
-    lklist* list=MEM_CREATE(sizeof(lklist));
+    lklist* list=(lklist*)MEM_CREATE(sizeof(lklist));
     list->val=0;
     list->next=NULL;
     return list;

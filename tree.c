@@ -1,5 +1,5 @@
-#include "tree.h"
 #include <math.h>
+#include "tree.h"
 
 bnrtree* bnrtree_create(int val){
     bnrtree* tree=(bnrtree*)MEM_CREATE(sizeof(bnrtree));
@@ -34,7 +34,15 @@ void bnrtree_print(bnrtree* tree){
         bnrtree_print(tree->right);
 }
 
-//打印整棵树
+/**
+ * 打印整棵树
+ * |
+ * |**
+ * |*****
+ * |*****
+ * 
+ * */
+
 void bnrtree_printf(bnrtree* tree,int deepth,lklist* list){
     lklist* cur=lklist_get(list,deepth);
     if(cur && cur->val){
@@ -71,4 +79,39 @@ void bnrtree_printf(bnrtree* tree,int deepth,lklist* list){
             printf("\n");
         }
     }
+}
+
+
+tree* tree_create(char* val){
+    tree *tree=MEM_CREATE(sizeof(tree));
+    tree->val=val;
+    tree->child=NULL;
+    tree->brother=NULL;
+    return tree;
+}
+
+void tree_insert(tree *tree,char* val){
+    while(tree->brother){
+        tree=tree->brother;
+    }
+
+    tree->brother=tree_create(val);
+}
+
+void tree_append(tree *tree,char* val){
+    if(!tree->child)
+        tree->child=tree_create(NULL);
+    tree_insert(tree->child,val);
+}
+
+tree* tree_search(){
+    
+}
+
+void tree_print(tree tree){
+    if(tree.val)printf("%s ",tree.val);
+
+    if(tree.brother)tree_print(*tree.brother);
+    else printf("\n");
+    if(tree.child)tree_print(*tree.child);
 }

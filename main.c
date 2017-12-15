@@ -1,19 +1,25 @@
 #include <stdio.h>
+//#include <math.h>
 
 #include "tree.h"
 #include "arr.h"
 #include "lklist.h"
 
-// #define PAUSE {printf("press  enter to continue \n");fgetc(stdin);}
-#define PAUSE system("pause");
+#define PAUSE {printf("\npress  enter to continue \n");fgetc(stdin);}
+// #define PAUSE system("pause");
+
+#define ROOT "root"
 
 void test_bnt();
 void test_arr(); 
+void test_t();
 
 int main(){
     // test_arr();
-    test_bnt();
+    // test_bnt();
     // arrval* val=ARRVALM(10);
+
+    test_t();
 
     PAUSE
     return 0;
@@ -39,6 +45,19 @@ void test_bnt(){
     
     lklist* list=lklist_create();
     bnrtree_printf(tree,0,list);
-    
-    
+
+    //bnrtree_mknull
+    //lklist_free
+}
+
+void test_t(){
+    tree *tree=tree_create(ROOT);
+    tree_append(tree,"html");
+    tree_append(tree->child,"head");
+    tree_append(tree->child,"body");
+    tree_append(tree->child->child->brother,"div");
+    tree_append(tree->child->child->brother,"div");    
+
+    printf("***print tree***\n\n");
+    tree_print(*tree);
 }
