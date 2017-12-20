@@ -1,5 +1,6 @@
 #include <math.h>
 #include "tree.h"
+#include <string.h>
 
 bnrtree* bnrtree_create(int val){
     bnrtree* tree=(bnrtree*)MEM_CREATE(sizeof(bnrtree));
@@ -98,14 +99,23 @@ void tree_insert(tree *tree,char* val){
     tree->brother=tree_create(val);
 }
 
+//空头...
 void tree_append(tree *tree,char* val){
     if(!tree->child)
         tree->child=tree_create(NULL);
     tree_insert(tree->child,val);
 }
 
-tree* tree_search(){
+struct tree tree_search(tree tree,char *val){
+    //TODO tree->val莫名为NULL
+    if(tree.val && strcmp(tree.val,val)==0)return tree;
+    struct tree temp={NULL,NULL,NULL};//脏数据    
     
+    if(tree.brother)temp = tree_search(*tree.brother,val);
+    if(temp.val)return temp;
+
+    if(tree.child)temp = tree_search(*tree.child,val);
+    return temp;
 }
 
 void tree_print(tree tree){

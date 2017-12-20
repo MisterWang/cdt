@@ -33,5 +33,6 @@ void tree_insert(tree *tree,char* val);
 void tree_append(tree *tree,char* val);
 void tree_mknull(tree *tree);
 void tree_print(tree tree);
+tree tree_search(tree tree,char *val);
 
 #endif

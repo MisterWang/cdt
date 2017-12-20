@@ -52,12 +52,20 @@ void test_bnt(){
 
 void test_t(){
     tree *tree=tree_create(ROOT);
+    struct tree res;
+
     tree_append(tree,"html");
     tree_append(tree->child,"head");
     tree_append(tree->child,"body");
-    tree_append(tree->child->child->brother,"div");
-    tree_append(tree->child->child->brother,"div");    
+    tree_append(tree->child->child->brother->brother,"div");
+    tree_append(tree->child->child->brother->brother,"div");    
 
     printf("***print tree***\n\n");
     tree_print(*tree);
+    // tree_print(*(tree->child));
+    // tree_print(*(tree->child->brother));    
+
+    printf("***search val:%s***\n\n","body");
+    res=(struct tree)tree_search(*tree,"body");
+    tree_print(res);
 }
